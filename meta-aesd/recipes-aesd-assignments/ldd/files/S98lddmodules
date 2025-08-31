@@ -1,0 +1,24 @@
+#! /bin/sh
+
+case "$1" in
+	start)
+		echo "Loading ldd modules"
+		modprobe hello
+		cd /lib/modules/`uname -r`/extra
+		module_load faulty
+		scull_load
+		cd -
+	;;
+	stop)
+		echo "Unloading ldd modules"
+		modprobe -r hello
+		cd /lib/modules/`uname -r`/extra
+		module_unload faulty
+		scull_unload
+		cd -
+	;;
+	*)
+		echo "Usagwe: $0 {start|stop}"
+		exit 1
+	;;
+esac
