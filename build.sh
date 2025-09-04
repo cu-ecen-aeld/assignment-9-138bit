@@ -34,6 +34,6 @@ else
 fi
 
 set -e
-bitbake -c cleanall scull misc-modules core-image-aesd
+bitbake -c cleanall scull misc-modules core-image-aesd aesd-char-driver aesd-assignments
 
 bitbake core-image-aesd
