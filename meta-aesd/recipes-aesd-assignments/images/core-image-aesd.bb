@@ -11,6 +11,8 @@ CORE_IMAGE_EXTRA_INSTALL += "misc-modules"
 CORE_IMAGE_EXTRA_INSTALL += "scull"
 #CORE_IMAGE_EXTRA_INSTALL += "kernel-module-scull"
 
+CORE_IMAGE_EXTRA_INSTALL += "aesd-char-driver"
+
 inherit extrausers
 # See https://docs.yoctoproject.org/singleindex.html#extrausers-bbclass
 # We set a default password of root to match our busybox instance setup

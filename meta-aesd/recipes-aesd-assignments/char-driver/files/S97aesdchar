@@ -1,0 +1,21 @@
+#! /bin/sh
+
+set -e
+
+case "$1" in
+	start)
+		echo "Loading aesdchar modules"
+		modprobe aesdchar
+		major="$(grep aesdchar /proc/devices | cut -f1 -d ' ')"
+		mknod /dev/aesdchar c ${major} 0
+	;;
+	stop)
+		echo "Unloading aesdchar modules"
+		rm /dev/aesdchar
+		modprobe -r aesdchar
+	;;
+	*)
+		echo "Usagwe: $0 {start|stop}"
+		exit 1
+	;;
+esac

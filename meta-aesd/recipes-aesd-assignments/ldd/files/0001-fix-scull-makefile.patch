@@ -1,0 +1,14 @@
+diff --git a/Makefile b/Makefile
+index 3f6c8d0..e951aea 100644
+--- a/Makefile
++++ b/Makefile
+@@ -29,6 +29,9 @@ PWD       := $(shell pwd)
+ modules:
+ 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+ 
++modules_install:
++	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules_install
++
+ endif
+ 
+ 
